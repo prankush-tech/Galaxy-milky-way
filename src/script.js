@@ -26,8 +26,8 @@ parameters.size = 0.005
 parameters.radius = 15
 parameters.branches = 5
 parameters.spin = 1
-parameters.randomness = 0.12
-parameters.randomnessPower = 3
+parameters.randomness = 0.4
+parameters.randomnessPower = 4
 parameters.insideColor = '#ff653b'
 parameters.outsideColor = '#6700fc'
 
