@@ -21,12 +21,12 @@ const scene = new THREE.Scene()
  * Galaxy
  */
 const parameters = {}
-parameters.count = 300000
+parameters.count = 200000
 parameters.size = 0.005
-parameters.radius = 13
+parameters.radius = 15
 parameters.branches = 5
 parameters.spin = 1
-parameters.randomness = 0.2
+parameters.randomness = 0.12
 parameters.randomnessPower = 3
 parameters.insideColor = '#ff653b'
 parameters.outsideColor = '#6700fc'
@@ -189,7 +189,7 @@ const tick = () =>
     const elapsedTime = clock.getElapsedTime()
 
     // Update material
-    material.uniforms.uTime.value = elapsedTime *0.9
+    material.uniforms.uTime.value = elapsedTime *0.5
 
     // Update controls
     controls.update()
