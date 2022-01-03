@@ -1,5 +1,5 @@
 # Three.js Journey - Bruno
-# <a href="https://prankush-milkyway.netlify.app/">GO Live</a>
+# <a href="https://prankush-milkyway.netlify.app/" target="" >GO Live</a>
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
 Run this followed commands:
