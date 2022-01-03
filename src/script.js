@@ -9,7 +9,7 @@ import galaxyFragmentShader from './shaders/galaxy/fragment.glsl'
  * Base
  */
 // Debug
-const gui = new dat.GUI()
+const gui = new dat.GUI({width: 260})
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -21,15 +21,15 @@ const scene = new THREE.Scene()
  * Galaxy
  */
 const parameters = {}
-parameters.count = 200000
+parameters.count = 300000
 parameters.size = 0.005
-parameters.radius = 8
-parameters.branches = 4
+parameters.radius = 13
+parameters.branches = 5
 parameters.spin = 1
 parameters.randomness = 0.2
 parameters.randomnessPower = 3
-parameters.insideColor = '#ff6030'
-parameters.outsideColor = '#0b7ff9'
+parameters.insideColor = '#ff653b'
+parameters.outsideColor = '#6700fc'
 
 let geometry = null
 let material = null
@@ -82,7 +82,7 @@ const generateGalaxy = () =>
         const mixedColor = insideColor.clone()
         mixedColor.lerp(outsideColor, radius / parameters.radius)
 
-        colors[i3    ] = mixedColor.r
+        colors[i3 + 0] = mixedColor.r
         colors[i3 + 1] = mixedColor.g
         colors[i3 + 2] = mixedColor.b
 
@@ -167,9 +167,11 @@ controls.enableDamping = true
  * Renderer
  */
 const renderer = new THREE.WebGLRenderer({
-    canvas: canvas
+    canvas: canvas,
+    alpha: true
 })
 renderer.setSize(sizes.width, sizes.height)
+renderer.setClearColor(true)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 /**
@@ -187,7 +189,7 @@ const tick = () =>
     const elapsedTime = clock.getElapsedTime()
 
     // Update material
-    material.uniforms.uTime.value = elapsedTime *0.5
+    material.uniforms.uTime.value = elapsedTime *0.9
 
     // Update controls
     controls.update()
