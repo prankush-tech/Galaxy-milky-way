@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 *
 {
     margin: 0;
@@ -16,4 +17,30 @@ body
     top: 0;
     left: 0;
     outline: none;
+    z-index: -1;
+}
+.text
+{
+    display: flex;
+
+    position: relative;
+    top: calc(15% - 14vmin / 2);
+    width: 100%;
+    color: #f8f8ef;
+    font-size: 8vmin;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    font-family: 'Fredoka One', cursive;
+    text-shadow: 0 0 10px rgba(245, 242, 242, 0.7);
+    -webkit-text-stroke: 1px rgb(146, 134, 134);
+    white-space: nowrap;
+}
+@media screen and (max-width:1050px)
+{
+    .text{
+        justify-content: left;
+    }
+
 }
