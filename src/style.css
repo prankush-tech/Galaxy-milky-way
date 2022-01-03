@@ -26,16 +26,16 @@ body
     position: relative;
     top: calc(15% - 14vmin / 2);
     width: 100%;
-    color: #f8f8ef;
+    color: #ffffff;
     font-size: 8vmin;
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
     outline: none;
     font-family: 'Fredoka One', cursive;
-    text-shadow: 0 0 10px rgba(245, 242, 242, 0.7);
-    -webkit-text-stroke: 1px rgb(146, 134, 134);
-    white-space: nowrap;
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+    /* -webkit-text-stroke: 1px rgb(255, 239, 239); */
+    /* white-space: nowrap; */
 }
 @media screen and (max-width:1050px)
 {
