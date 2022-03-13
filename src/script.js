@@ -23,13 +23,13 @@ const scene = new THREE.Scene()
 const parameters = {}
 parameters.count = 200000
 parameters.size = 0.005
-parameters.radius = 8
+parameters.radius = 10
 parameters.branches = 4
 parameters.spin = 1
-parameters.randomness = 0.2
-parameters.randomnessPower = 3
-parameters.insideColor = '#ff6030'
-parameters.outsideColor = '#0b7ff9'
+parameters.randomness = 0.4
+parameters.randomnessPower = 4
+parameters.insideColor = '#ff653b'
+parameters.outsideColor = '#6700fc'
 
 let geometry = null
 let material = null
@@ -70,7 +70,7 @@ const generateGalaxy = () =>
         const randomY = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius
         const randomZ = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius
 
-        positions[i3    ] = Math.cos(branchAngle) * radius
+        positions[i3 + 0] = Math.cos(branchAngle) * radius
         positions[i3 + 1] = 0
         positions[i3 + 2] = Math.sin(branchAngle) * radius
     
@@ -82,7 +82,7 @@ const generateGalaxy = () =>
         const mixedColor = insideColor.clone()
         mixedColor.lerp(outsideColor, radius / parameters.radius)
 
-        colors[i3    ] = mixedColor.r
+        colors[i3 + 0] = mixedColor.r
         colors[i3 + 1] = mixedColor.g
         colors[i3 + 2] = mixedColor.b
 
@@ -155,21 +155,24 @@ window.addEventListener('resize', () =>
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 3
-camera.position.y = 3
+camera.position.y = 0.1
 camera.position.z = 3
 scene.add(camera)
 
 // Controls
 const controls = new OrbitControls(camera, canvas)
-controls.enableDamping = true
+controls.enableDamping = true;
+controls.dampingFactor = 0.01;
 
 /**
  * Renderer
  */
 const renderer = new THREE.WebGLRenderer({
-    canvas: canvas
+    canvas: canvas,
+    alpha: true
 })
 renderer.setSize(sizes.width, sizes.height)
+renderer.setClearColor(true)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 /**
