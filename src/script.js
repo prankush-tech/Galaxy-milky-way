@@ -24,7 +24,7 @@ const parameters = {}
 parameters.count = 200000
 parameters.size = 0.005
 parameters.radius = 15
-parameters.branches = 3
+parameters.branches = 4
 parameters.spin = 1
 parameters.randomness = 0.4
 parameters.randomnessPower = 4
@@ -155,7 +155,7 @@ window.addEventListener('resize', () =>
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 3
-camera.position.y = 3
+camera.position.y = 0.2
 camera.position.z = 3
 scene.add(camera)
 
