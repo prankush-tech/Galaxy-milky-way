@@ -23,11 +23,10 @@ const scene = new THREE.Scene()
 const parameters = {}
 parameters.count = 200000
 parameters.size = 0.005
-<<<<<<< HEAD
 parameters.radius = 10
-=======
+
 parameters.radius = 15
->>>>>>> f997efd145216f997dfc5161b0b15801eca43ff5
+
 parameters.branches = 4
 parameters.spin = 1
 parameters.randomness = 0.4
