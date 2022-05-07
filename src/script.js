@@ -23,7 +23,11 @@ const scene = new THREE.Scene()
 const parameters = {}
 parameters.count = 200000
 parameters.size = 0.005
+<<<<<<< HEAD
 parameters.radius = 10
+=======
+parameters.radius = 15
+>>>>>>> f997efd145216f997dfc5161b0b15801eca43ff5
 parameters.branches = 4
 parameters.spin = 1
 parameters.randomness = 0.4
@@ -155,7 +159,11 @@ window.addEventListener('resize', () =>
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 3
+<<<<<<< HEAD
 camera.position.y = 0.1
+=======
+camera.position.y = 0.2
+>>>>>>> f997efd145216f997dfc5161b0b15801eca43ff5
 camera.position.z = 3
 scene.add(camera)
 

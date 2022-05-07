@@ -18,6 +18,34 @@ body
     left: 0;
     outline: none;
     z-index: -1;
+<<<<<<< HEAD
+=======
+}
+.text
+{
+    display: flex;
+
+    position: relative;
+    top: calc(15% - 14vmin / 2);
+    width: 100%;
+    color: #ffffff;
+    font-size: 8vmin;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    font-family: 'Fredoka One', cursive;
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+    /* -webkit-text-stroke: 1px rgb(255, 239, 239); */
+    /* white-space: nowrap; */
+}
+@media screen and (max-width:1050px)
+{
+    .text{
+        justify-content: left;
+    }
+
+>>>>>>> f997efd145216f997dfc5161b0b15801eca43ff5
 }
 .text
 {
