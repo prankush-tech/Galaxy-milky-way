@@ -1,7 +1,7 @@
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import * as dat from 'dat.gui'
+import * as dat from 'lil-gui'
 import galaxyVertexShader from './shaders/galaxy/vertex.glsl'
 import galaxyFragmentShader from './shaders/galaxy/fragment.glsl'
 
@@ -9,7 +9,9 @@ import galaxyFragmentShader from './shaders/galaxy/fragment.glsl'
  * Base
  */
 // Debug
-const gui = new dat.GUI()
+const gui = new dat.GUI({
+    title: 'HOLY CONTROL'
+})
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -22,17 +24,14 @@ const scene = new THREE.Scene()
  */
 const parameters = {}
 parameters.count = 200000
-parameters.size = 0.005
-parameters.radius = 10
-
 parameters.radius = 15
-
 parameters.branches = 4
 parameters.spin = 1
 parameters.randomness = 0.4
 parameters.randomnessPower = 4
 parameters.insideColor = '#ff653b'
 parameters.outsideColor = '#6700fc'
+parameters.hideMenuOnScreenshot= true
 
 let geometry = null
 let material = null
@@ -73,7 +72,7 @@ const generateGalaxy = () =>
         const randomY = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius
         const randomZ = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius
 
-        positions[i3 + 0] = Math.cos(branchAngle) * radius
+        positions[i3    ] = Math.cos(branchAngle) * radius
         positions[i3 + 1] = 0
         positions[i3 + 2] = Math.sin(branchAngle) * radius
     
@@ -129,9 +128,35 @@ gui.add(parameters, 'randomnessPower').min(1).max(10).step(0.001).onFinishChange
 gui.addColor(parameters, 'insideColor').onFinishChange(generateGalaxy)
 gui.addColor(parameters, 'outsideColor').onFinishChange(generateGalaxy)
 
-/**
- * Sizes
- */
+
+
+var obj = {
+     Generate:function()
+     { 
+        parameters.radius = Math.floor(Math.random() * 20)+1;
+        parameters.size = Math.floor(Math.random() * 20)+1
+        parameters.radius = Math.floor(Math.random() * 20)+1
+        parameters.branches = Math.floor(Math.random() * 10)+3
+        parameters.spin = 13
+        parameters.randomness = 0.4
+        parameters.count=Math.floor(Math.random() * 2000)+200000
+        parameters.randomnessPower = 4;
+
+        let cg ="#" + Math.floor(Math.random()*16777215).toString(16)
+        let cg2 ="#" + Math.floor(Math.random()*16777215).toString(16)
+
+        parameters.insideColor = cg
+        parameters.outsideColor = cg2
+        generateGalaxy()
+
+    }};
+
+gui.add(obj,'Generate')
+
+
+
+
+
 const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
@@ -158,14 +183,13 @@ window.addEventListener('resize', () =>
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 3
-camera.position.y = 0.2
+camera.position.y = 1
 camera.position.z = 3
 scene.add(camera)
 
 // Controls
 const controls = new OrbitControls(camera, canvas)
-controls.enableDamping = true;
-controls.dampingFactor = 0.01;
+controls.enableDamping = true
 
 /**
  * Renderer
@@ -193,7 +217,7 @@ const tick = () =>
     const elapsedTime = clock.getElapsedTime()
 
     // Update material
-    material.uniforms.uTime.value = elapsedTime *0.5
+    material.uniforms.uTime.value = elapsedTime *0.25
 
     // Update controls
     controls.update()

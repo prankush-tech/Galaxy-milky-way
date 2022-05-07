@@ -7,11 +7,70 @@
 
 </head>
 <body>
+
+
+    <div class="loading-bar">LOADING...</div>
+
+    
+    <button class="btn" id="btn" onclick="myFunction();">
+        <p class="explore">
+            VISIT MULTIVERSE
+        </p>
+    </button>
+
+ <div class="myDIV"></div>
+    <script type="text/javascript">
+
+        let loading = document.querySelector('.loading-bar');
+        var y = document.querySelector(".btn");
+        window.onload = ()=>
+        {
+            y.style.opacity = "1";
+            loading.style.opacity = "0";
+            loading.style.display = "none";
+            y.style.display = "block";
+        }
+        
+        function myFunction()
+        {
+            var x = document.querySelector(".myDIV");
+
+            if (x.style.display === "none") 
+            {
+                setTimeout(function () {
+
+                    x.style.display = "block";
+                }, 100);
+            }
+            else
+            {
+                setTimeout(function () {
+                    x.style.opacity = "0";
+                    y.style.opacity = "0";
+                }, 300);
+
+                setTimeout(function () {
+                    x.style.display = "none";
+                    y.style.display = "none";
+                }, 2050);
+            }
+        }
+    </script>
+
+
+
+
+
+
     <div class="text"  spellcheck="false">
         PRANKYS
     </div>
     <div class="text"  spellcheck="false">
         GALXAY
+    </div>
+    <div class="content">
+        Click the generate button<br>
+        to geneate random galaxies
     </div>
     <canvas class="webgl"></canvas>
 </body>

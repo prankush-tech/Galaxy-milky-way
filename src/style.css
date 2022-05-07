@@ -4,10 +4,37 @@
     margin: 0;
     padding: 0;
 }
+.myDIV {
 
-html,
-body
+    position: relative;
+    width: 100vw;
+    height: 200vh;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    z-index: +4;
+    opacity: 1;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    transition: opacity 2s ease-in-out;
+
+}
+.myDIV.fade
 {
+    z-index: +4;
+    opacity: 0;
+    display: none;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: bold;
+    color: #ffffff;
+
+}
+html,body {
     overflow: hidden;
 }
 
@@ -18,7 +45,6 @@ body
     left: 0;
     outline: none;
     z-index: -1;
-
 }
 .text
 {
@@ -28,7 +54,7 @@ body
     top: calc(15% - 14vmin / 2);
     width: 100%;
     color: #ffffff;
-    font-size: 8vmin;
+    font-size: 4vmin;
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
@@ -38,31 +64,57 @@ body
     /* -webkit-text-stroke: 1px rgb(255, 239, 239); */
     /* white-space: nowrap; */
 }
-@media screen and (max-width:1050px)
-{
-    .text{
-        justify-content: left;
-    }
 
+.loading-bar
+{
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    margin: 10px;
+    opacity: 1;
 }
-.text
+#btn
 {
-    display: flex;
-
-    position: relative;
-    top: calc(15% - 14vmin / 2);
-    width: 100%;
+    position: absolute;
+    z-index: 5;
+    display: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    cursor: pointer;
+    border: 0.5px solid rgb(255, 255, 255);
+    margin: 10px;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    transition: opacity 2s ease-in-out;
+}
+.explore
+{
+    margin: 10px 30px;
+    font-size:0.5rem;
+    letter-spacing: 5px;
+}
+.btn.fade
+{
+    opacity: 0;
+}
+.content{
     color: #ffffff;
-    font-size: 8vmin;
+    font-size: 2vmin;
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
-    outline: none;
-    font-family: 'Fredoka One', cursive;
-    text-shadow: 0 0 10px rgb(255, 255, 255);
-    /* -webkit-text-stroke: 1px rgb(255, 239, 239); */
-    /* white-space: nowrap; */
+
 }
+
+
 @media screen and (max-width:1050px)
 {
     .text{
