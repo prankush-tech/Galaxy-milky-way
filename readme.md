@@ -1,4 +1,4 @@
-## Three.js Journey - Bruno
+# Three.js Journey - Bruno
 # <a href="https://prankush-milkyway.netlify.app/" target="" >GO Live</a>
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
